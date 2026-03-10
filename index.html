@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator Luas Bangun Datar</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:600px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+}
+
+.section{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin:5px 0 10px 0;
+}
+
+button{
+    background:#4facfe;
+    border:none;
+    color:white;
+    padding:10px;
+    width:100%;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2f8be6;
+}
+
+.hasil{
+    margin-top:10px;
+    font-weight:bold;
+    color:#333;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Kalkulator Luas Bangun Datar</h1>
+
+<!-- Persegi Panjang -->
+<div class="section">
+<h3>Persegi Panjang</h3>
+
+<input type="number" id="panjang" placeholder="Masukkan panjang">
+<input type="number" id="lebar" placeholder="Masukkan lebar">
+
+<button onclick="hitungPersegiPanjang()">Hitung Luas</button>
+
+<div class="hasil" id="hasilPP"></div>
+</div>
+
+
+<!-- Bujur Sangkar -->
+<div class="section">
+<h3>Bujur Sangkar</h3>
+
+<input type="number" id="sisi" placeholder="Masukkan sisi">
+
+<button onclick="hitungBujurSangkar()">Hitung Luas</button>
+
+<div class="hasil" id="hasilBS"></div>
+</div>
+
+
+<!-- Segitiga -->
+<div class="section">
+<h3>Segitiga</h3>
+
+<input type="number" id="alas" placeholder="Masukkan alas">
+<input type="number" id="tinggi" placeholder="Masukkan tinggi">
+
+<button onclick="hitungSegitiga()">Hitung Luas</button>
+
+<div class="hasil" id="hasilSG"></div>
+</div>
+
+</div>
+
+
+<script>
+
+/*
+Fungsi menghitung luas persegi panjang
+Rumus: panjang × lebar
+Parameter:
+- panjang : nilai panjang
+- lebar   : nilai lebar
+*/
+function luasPersegiPanjang(panjang, lebar){
+    return panjang * lebar;
+}
+
+
+/*
+Fungsi menghitung luas bujur sangkar
+Rumus: sisi × sisi
+Parameter:
+- sisi : panjang sisi
+*/
+function luasBujurSangkar(sisi){
+    return sisi * sisi;
+}
+
+
+/*
+Fungsi menghitung luas segitiga
+Rumus: 1/2 × alas × tinggi
+Parameter:
+- alas   : panjang alas
+- tinggi : tinggi segitiga
+*/
+function luasSegitiga(alas, tinggi){
+    return 0.5 * alas * tinggi;
+}
+
+
+/*
+Fungsi untuk mengambil input pengguna
+dan menampilkan hasil luas persegi panjang
+*/
+function hitungPersegiPanjang(){
+
+let panjang = document.getElementById("panjang").value;
+let lebar = document.getElementById("lebar").value;
+
+let hasil = luasPersegiPanjang(panjang, lebar);
+
+document.getElementById("hasilPP").innerHTML = "Luas = " + hasil;
+
+}
+
+
+/*
+Fungsi untuk menghitung dan menampilkan
+luas bujur sangkar
+*/
+function hitungBujurSangkar(){
+
+let sisi = document.getElementById("sisi").value;
+
+let hasil = luasBujurSangkar(sisi);
+
+document.getElementById("hasilBS").innerHTML = "Luas = " + hasil;
+
+}
+
+
+/*
+Fungsi untuk menghitung dan menampilkan
+luas segitiga
+*/
+function hitungSegitiga(){
+
+let alas = document.getElementById("alas").value;
+let tinggi = document.getElementById("tinggi").value;
+
+let hasil = luasSegitiga(alas, tinggi);
+
+document.getElementById("hasilSG").innerHTML = "Luas = " + hasil;
+
+}
+
+</script>
+
+</body>
+</html>
